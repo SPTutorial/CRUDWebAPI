@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CRUDWebAPI"
+             x:Class="CRUDWebAPI.MainPage">
+
+    <StackLayout>
+        <Button Text="Add Employee" Command="{Binding AddEmployee}"/>
+        <ListView ItemsSource="{Binding Employees}" HasUnevenRows="True" IsPullToRefreshEnabled="True" 
+                  IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshData}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="4">
+                            <Label Text="{Binding Name,StringFormat='Name: {0:F0)}'}" TextColor="Black"  
+                                   FontAttributes="Bold" FontSize="Medium"/>
+                            <Label Text="{Binding Addresss,StringFormat='Address: {0:F0)}'}" TextColor="Blue"  FontSize="Medium"/>
+                            <Label Text="{Binding PhoneNumber,StringFormat='Phone: {0:F0)}'}" TextColor="Black"  FontSize="Medium"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

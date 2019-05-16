@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRUDWebAPI.AddEmployee">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Name" TextColor="Black" FontSize="Small"/>
+            <Entry Text="{Binding Name}" HorizontalOptions="FillAndExpand" Placeholder="Name"/>
+            
+            <Label Text="Address" TextColor="Black" FontSize="Small"/>
+            <Entry Text="{Binding Address}" HorizontalOptions="FillAndExpand" Placeholder="Address"/>
+            
+            <Label Text="Phone" TextColor="Black" FontSize="Small"/>
+            <Entry Text="{Binding Phone}" HorizontalOptions="FillAndExpand" Placeholder="Phone"/>
+
+            <Button Text="Save" Command="{Binding SaveEmployee}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
