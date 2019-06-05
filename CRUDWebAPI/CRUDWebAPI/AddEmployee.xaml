@@ -14,6 +14,8 @@
             <Entry Text="{Binding Phone}" HorizontalOptions="FillAndExpand" Placeholder="Phone"/>
 
             <Button Text="Save" Command="{Binding SaveEmployee}"/>
+            <Button Text="Delete" Command="{Binding DeleteEmployee}" BackgroundColor="Red" TextColor="White"
+                    IsVisible="{Binding IsVisibleDeleteBtn}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

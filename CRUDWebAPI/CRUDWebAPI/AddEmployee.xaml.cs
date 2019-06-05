@@ -12,10 +12,10 @@ namespace CRUDWebAPI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddEmployee : ContentPage
     {
-        public AddEmployee()
+        public AddEmployee(Employee employee)
         {
             InitializeComponent();
-            BindingContext = new AddEmployeeViewModel(Navigation);
+            BindingContext = new AddEmployeeViewModel(Navigation, employee);
         }
     }
 }

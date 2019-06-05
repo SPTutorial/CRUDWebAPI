@@ -7,7 +7,7 @@
     <StackLayout>
         <Button Text="Add Employee" Command="{Binding AddEmployee}"/>
         <ListView ItemsSource="{Binding Employees}" HasUnevenRows="True" IsPullToRefreshEnabled="True" 
-                  IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshData}">
+                  IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshData}" SelectedItem="{Binding SelectedEmployee,Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

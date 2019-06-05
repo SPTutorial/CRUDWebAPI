@@ -16,15 +16,14 @@ namespace CRUDWebAPI
         public MainPageViewModel(INavigation _navigation)
         {
             Navigation = _navigation;
-            GetEmployees();
         }
 
-        private async void GetEmployees()
+        public async void GetEmployees()
         {
             using (var client = new HttpClient())
             {
                 // send a GET request  
-                var uri = "http://192.168.0.6:8092/api/Masters/GetEmployees";
+                var uri = "http://192.168.0.5/api/Masters/GetEmployees";
                 var result = await client.GetStringAsync(uri);
 
                 //handling the answer  
@@ -40,7 +39,17 @@ namespace CRUDWebAPI
             {
                 return new Command(() =>
                 {
-                    Navigation.PushAsync(new AddEmployee());
+                    Navigation.PushAsync(new AddEmployee(null));
+                });
+            }
+        }
+        public Command EditEmployee
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    Navigation.PushAsync(new AddEmployee(null));
                 });
             }
         }
@@ -66,6 +75,23 @@ namespace CRUDWebAPI
             set
             {
                 _isRefreshing = value;
+                OnPropertyChanged();
+            }
+        }
+        Employee _selectedEmployee;
+        public Employee SelectedEmployee
+        {
+            get
+            {
+                return _selectedEmployee;
+            }
+            set
+            {
+                _selectedEmployee = value;
+                if(value!=null)
+                {
+                    Navigation.PushAsync(new AddEmployee(SelectedEmployee));
+                }
                 OnPropertyChanged();
             }
         }

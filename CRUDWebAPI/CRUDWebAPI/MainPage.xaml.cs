@@ -14,5 +14,9 @@ namespace CRUDWebAPI
             InitializeComponent();
             BindingContext = new MainPageViewModel(Navigation);
         }
+        protected override void OnAppearing()
+        {
+            (this.BindingContext as MainPageViewModel).GetEmployees();
+        }
     }
 }
